@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Detail Profil</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		function geturl(){
+			var vars={};
+			var parts=window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+				function(m,key,value){
+					vars[key]=value;
+			});
+            return vars;
+		}
+		var id_html=geturl()['ids'];
+		$("document").ready(function(){
+			$.getJSON('http://localhost/android_mysql/apps/get_detail_profil.php?idphp='+id_html,{get_param:'value'},function(data){
+				$.each(data,function(index,element){
+					$('#tabledata').find('tbody').append(
+						'<tr>'+
+							'<td>'+element.tbl_nama+'</td>' +
+							'<td>'+element.tbl_jenis_kelamin+'</td>' +
+							'<td>'+element.tbl_no_telp+'</td>' +
+							'<td>'+element.tbl_alamat+'</td>' +
+							'<td><img src="../server/folder_file/'+element.tbl_file+' "width="200px"> </td>' +
+						'</tr>'
+					);
+			 });
+		 });
+	 });
+
+
+	</script>
+</head>
+<body>
+
+
+<h2 align="center">Detail Profil</h2>
+<table align="center" border="1" id="tabledata" width="700px" bordercolor="red">
+<thead>
+	<tr>
+		    <th>Nama</th>
+        <th>Jenis Kelamin</th>
+        <th>Alamat</th>
+        <th>No Telp</th>
+        <th>Foto</th>
+  </tr>
+</thead>
+<tbody>
+
+</tbody>

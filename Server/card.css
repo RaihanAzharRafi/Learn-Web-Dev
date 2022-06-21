@@ -1,0 +1,14 @@
+.card{
+  margin-bottom: 10px;
+  min-height: 300px;
+  font-size: large;
+  text-align: center;
+}
+
+
+.mainContent{
+  margin-bottom: 10px;
+  min-height: 150px;
+  text-align: center;
+  font-size: large;
+}

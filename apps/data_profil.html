@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Data Profil</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$("document").ready(function(){
+			$.getJSON('http://localhost/android_mysql/apps/get_data_profil.php',{get_param:'value'},function(data){
+				$.each(data,function(index,element){
+					$("#tabledata").find("tbody").append(
+						"<tr>" +
+							"<td>" +element.tbl_nama+ "</td>" +
+							"<td>" +element.tbl_jenis_kelamin+ "</td>" +
+							"<td>" +element.tbl_no_telp+ "</td>" +
+							"<td><a href='detail_profil.html?ids=" +element.tbl_id_profil+ "'>Detail</a></td>"
+						);
+				});
+			});
+		});
+			
+	</script>
+</head>
+</body>
+	<h2 align="center">Data Profil</h2>
+	<table align="center" width="600px" id="tabledata" border="1">
+		<thead>
+			<tr>
+				<td>Nama</td>
+				<td>Jenis Kelamin</td>
+				<td>No Telp</td>
+				<td>Aksi</td>
+			</tr>
+		</thead>
+		<tbody>
+
+		</tbody>
+	</table>
+</body>
+</html>
